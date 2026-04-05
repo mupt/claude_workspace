@@ -3,197 +3,434 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lizards</title>
+  <title>F.M. Bonnevier for Moorestown School Board</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --navy: #0a1f44;
+      --red: #c0392b;
+      --gold: #e8b84b;
+      --light: #f4f6fa;
+      --white: #ffffff;
+    }
+
     body {
-      font-family: Georgia, serif;
-      background-color: #1a1a0e;
-      color: #e8e0c8;
+      font-family: 'Georgia', serif;
+      background: var(--light);
+      color: #222;
       line-height: 1.7;
     }
 
-    header {
-      background: linear-gradient(135deg, #2d4a1e, #4a7c2f);
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 4px solid #6aaf3a;
+    /* NAV */
+    nav {
+      background: var(--navy);
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    header h1 {
-      font-size: 4rem;
-      letter-spacing: 0.1em;
-      color: #c8f07a;
-      text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    nav .logo {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #a8d878;
-      margin-top: 10px;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul a {
+      color: #cdd8ec;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-family: Arial, sans-serif;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 60%, #163a6b);
+      color: white;
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid var(--gold);
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span {
+      color: var(--gold);
+    }
+
+    .hero-text .tagline {
+      font-size: 1.25rem;
+      color: #9eb8d9;
+      margin: 12px 0 24px;
       font-style: italic;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    .btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
     }
 
+    .btn:hover { background: #a93226; }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      margin-left: 12px;
+    }
+
+    .btn-outline:hover { background: var(--gold); color: var(--navy); }
+
+    /* RIBBON */
+    .ribbon {
+      background: var(--red);
+      color: white;
+      text-align: center;
+      padding: 14px;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    /* SECTIONS */
     section {
-      margin-bottom: 50px;
+      padding: 70px 40px;
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     h2 {
-      font-size: 1.8rem;
-      color: #8dd44a;
-      border-left: 5px solid #6aaf3a;
-      padding-left: 15px;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold);
+      display: inline-block;
     }
 
-    p {
-      margin-bottom: 15px;
-      font-size: 1.05rem;
-    }
-
-    .card-grid {
+    /* ABOUT */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
     }
 
-    .card {
-      background: #252518;
-      border: 1px solid #4a7c2f;
+    .about-grid p { margin-bottom: 14px; }
+
+    .about-grid .bio-facts {
+      background: var(--navy);
+      color: white;
+      padding: 28px;
       border-radius: 8px;
-      padding: 24px;
     }
 
-    .card h3 {
-      color: #c8f07a;
-      font-size: 1.2rem;
+    .bio-facts h3 {
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .bio-facts ul { list-style: none; }
+
+    .bio-facts li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.95rem;
+    }
+
+    .bio-facts li:last-child { border-bottom: none; }
+
+    .bio-facts li::before { content: "✓ "; color: var(--gold); }
+
+    /* PLATFORM */
+    .platform-bg {
+      background: var(--navy);
+    }
+
+    .platform-bg section {
+      color: white;
+    }
+
+    .platform-bg h2 {
+      color: var(--white);
+      border-color: var(--gold);
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .pillar {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-top: 4px solid var(--gold);
+      border-radius: 6px;
+      padding: 28px;
+    }
+
+    .pillar .icon { font-size: 2.2rem; margin-bottom: 12px; }
+
+    .pillar h3 {
+      color: var(--gold);
+      font-size: 1.1rem;
       margin-bottom: 10px;
     }
 
-    .card .emoji {
-      font-size: 2.5rem;
-      display: block;
-      margin-bottom: 12px;
-    }
+    .pillar p { font-size: 0.95rem; color: #cdd8ec; }
 
-    .fact-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .fact-list li {
-      padding: 12px 16px;
-      margin-bottom: 10px;
-      background: #252518;
-      border-left: 4px solid #6aaf3a;
-      border-radius: 0 6px 6px 0;
-    }
-
-    .fact-list li::before {
-      content: "▸ ";
-      color: #8dd44a;
-    }
-
-    footer {
+    /* QUOTE */
+    .quote-section {
+      background: var(--gold);
+      padding: 50px 40px;
       text-align: center;
-      padding: 30px;
-      background: #0f0f08;
-      color: #556644;
-      font-size: 0.9rem;
-      border-top: 2px solid #2d4a1e;
+    }
+
+    .quote-section blockquote {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.5rem;
+      color: var(--navy);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .quote-section cite {
+      display: block;
+      margin-top: 16px;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    /* ENDORSEMENTS */
+    .endorse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .endorse-card {
+      background: white;
+      border-left: 4px solid var(--navy);
+      padding: 24px;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .endorse-card p { font-style: italic; margin-bottom: 12px; }
+    .endorse-card strong { color: var(--navy); }
+
+    /* CONTACT */
+    .contact-bg { background: #e9ecf2; }
+
+    .contact-bg section { text-align: center; }
+
+    .contact-bg p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: #7a8faa;
+      text-align: center;
+      padding: 28px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+    }
+
+    footer span { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 50px 20px; text-align: center; }
+      .hero-text h1 { font-size: 2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav ul { gap: 16px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🦎 Lizards</h1>
-    <p>Masters of survival, older than the dinosaurs</p>
-  </header>
+  <nav>
+    <div class="logo">Bonnevier for School Board</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#endorsements">Endorsements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <main>
+  <div class="hero">
+    <img src="https://avatars.githubusercontent.com/u/1609175?v=4" alt="F.M. Bonnevier">
+    <div class="hero-text">
+      <h1>F.M. <span>Bonnevier</span></h1>
+      <p class="tagline">A fresh voice for Moorestown's students and families</p>
+      <a href="#platform" class="btn">See My Platform</a>
+      <a href="#contact" class="btn btn-outline">Get Involved</a>
+    </div>
+  </div>
 
+  <div class="ribbon">Moorestown Township School Board Election 2025</div>
+
+  <div id="about">
     <section>
-      <h2>What Are Lizards?</h2>
-      <p>
-        Lizards are a widespread group of squamate reptiles, with over 7,000 known species distributed across every continent except Antarctica. They range from tiny geckos no bigger than a thumbnail to the fearsome Komodo dragon, which can reach 3 metres in length and take down a water buffalo.
-      </p>
-      <p>
-        Unlike snakes — their closest relatives — most lizards have four legs, visible ear openings, and movable eyelids. They are cold-blooded, relying on external heat sources to regulate their body temperature, which is why you'll so often find them basking on sun-warmed rocks.
-      </p>
-    </section>
-
-    <section>
-      <h2>Notable Species</h2>
-      <div class="card-grid">
-        <div class="card">
-          <span class="emoji">🐉</span>
-          <h3>Komodo Dragon</h3>
-          <p>The world's largest lizard, native to a handful of Indonesian islands. It uses venom and bacteria-laden saliva to bring down prey far larger than itself.</p>
+      <h2>About F.M.</h2>
+      <div class="about-grid">
+        <div>
+          <p>
+            F.M. Bonnevier is a Moorestown community member with a deep commitment to public education and the future of Moorestown Township's students. A proud product of public schools, F.M. knows firsthand how transformative a great education can be.
+          </p>
+          <p>
+            F.M. believes our school board must be responsive, transparent, and focused on student outcomes — not politics. That means listening to parents, supporting teachers, and making data-driven decisions with taxpayer money.
+          </p>
+          <p>
+            If elected, F.M. will be an independent voice on the board, free from special-interest influence and always accountable to the Moorestown community.
+          </p>
         </div>
-        <div class="card">
-          <span class="emoji">🏜️</span>
-          <h3>Thorny Devil</h3>
-          <p>An Australian desert lizard covered in spines. It collects moisture from sand through capillary channels in its scales and channels it directly to its mouth.</p>
-        </div>
-        <div class="card">
-          <span class="emoji">🌿</span>
-          <h3>Green Iguana</h3>
-          <p>A large, arboreal lizard native to Central and South America. Despite its intimidating size, it is almost entirely herbivorous and an excellent swimmer.</p>
-        </div>
-        <div class="card">
-          <span class="emoji">🌈</span>
-          <h3>Chameleon</h3>
-          <p>Famous for changing colour — not primarily for camouflage, but to communicate mood and social status. Their eyes move independently, giving 360° vision.</p>
-        </div>
-        <div class="card">
-          <span class="emoji">🏃</span>
-          <h3>Basilisk</h3>
-          <p>Known as the "Jesus lizard" for its ability to run across water on its hind legs. It achieves this through rapid foot strikes that trap air pockets beneath the surface.</p>
-        </div>
-        <div class="card">
-          <span class="emoji">🏠</span>
-          <h3>Common House Gecko</h3>
-          <p>A familiar sight across the tropics, clinging to walls and ceilings at night. Their toe pads contain millions of microscopic hairs that exploit van der Waals forces.</p>
+        <div class="bio-facts">
+          <h3>At a Glance</h3>
+          <ul>
+            <li>Moorestown community member</li>
+            <li>Advocate for public education</li>
+            <li>Committed to fiscal responsibility</li>
+            <li>Supporter of teachers & staff</li>
+            <li>Parent & community stakeholder</li>
+            <li>Independent — no party agenda</li>
+          </ul>
         </div>
       </div>
     </section>
+  </div>
 
+  <div class="platform-bg" id="platform">
     <section>
-      <h2>Fascinating Facts</h2>
-      <ul class="fact-list">
-        <li>Some lizards can detach their tails to escape predators — and regrow them over time.</li>
-        <li>The blue-tongued skink flashes its vivid tongue to startle and deter threats.</li>
-        <li>Geckos can hear sounds, unlike most other lizards which rely primarily on vibration.</li>
-        <li>The Gila monster is one of only two venomous lizard species native to North America.</li>
-        <li>Some skink species give birth to live young and even have a primitive placenta.</li>
-        <li>The frilled-neck lizard erects a large frill around its neck to appear larger when threatened.</li>
-        <li>Komodo dragons can reproduce via parthenogenesis — females can produce offspring without a male.</li>
-      </ul>
+      <h2>Platform</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="icon">📚</div>
+          <h3>Academic Excellence</h3>
+          <p>Raise the bar for student achievement in reading, math, and critical thinking. Ensure every Moorestown student is prepared for college and career.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">💰</div>
+          <h3>Fiscal Responsibility</h3>
+          <p>Spend taxpayer dollars wisely and transparently. Every dollar should reach the classroom, not administrative overhead or wasteful programs.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">🏫</div>
+          <h3>Safe Schools</h3>
+          <p>Ensure every student feels safe and supported. Strengthen mental health resources, anti-bullying programs, and campus safety measures.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">🤝</div>
+          <h3>Community Partnership</h3>
+          <p>Keep parents informed and involved. Hold open board meetings, publish clear budgets, and build genuine two-way communication with families.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">👩‍🏫</div>
+          <h3>Supporting Teachers</h3>
+          <p>Recruit and retain the best educators by valuing their work, reducing administrative burden, and providing the resources they need to succeed.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">🌐</div>
+          <h3>Modern Learning</h3>
+          <p>Thoughtfully integrate technology and STEM opportunities while protecting student data privacy and ensuring equitable access for all students.</p>
+        </div>
+      </div>
     </section>
+  </div>
 
+  <div class="quote-section">
+    <blockquote>
+      "Our schools are the foundation of this community. Every decision the board makes should start and end with one question: is this good for our kids?"
+    </blockquote>
+    <cite>— F.M. Bonnevier</cite>
+  </div>
+
+  <div id="endorsements">
     <section>
-      <h2>Lizards & Their Habitat</h2>
-      <p>
-        Lizards have colonised nearly every terrestrial habitat on Earth — from the driest deserts to tropical rainforests, coastal dunes to high-altitude mountainsides. Their success lies in their adaptability: desert species have evolved to extract water from food alone, while rainforest species can be brilliantly coloured and highly arboreal.
-      </p>
-      <p>
-        Many species are under increasing pressure from habitat destruction, invasive predators, and climate change. Rising temperatures are particularly threatening, as they can skew sex ratios in species where egg incubation temperature determines sex.
-      </p>
+      <h2>Endorsements</h2>
+      <div class="endorse-grid">
+        <div class="endorse-card">
+          <p>"F.M. brings the kind of thoughtful, no-nonsense approach our school board has been missing. I'm proud to give my full support."</p>
+          <strong>— Moorestown Parent & PTO Member</strong>
+        </div>
+        <div class="endorse-card">
+          <p>"Finally a candidate who actually listens. F.M. took the time to understand the real challenges teachers face every day."</p>
+          <strong>— Local Educator</strong>
+        </div>
+        <div class="endorse-card">
+          <p>"F.M. is committed to fiscal transparency and getting results for students. Moorestown needs this kind of leadership."</p>
+          <strong>— Moorestown Taxpayer & Business Owner</strong>
+        </div>
+      </div>
     </section>
+  </div>
 
-  </main>
+  <div class="contact-bg" id="contact">
+    <section>
+      <h2>Get Involved</h2>
+      <p>Want to volunteer, put up a yard sign, or just learn more? Reach out — every conversation matters.</p>
+      <a href="mailto:vote@bonnevier.fm" class="btn">Contact F.M.</a>
+    </section>
+  </div>
 
   <footer>
-    <p>🦎 The world is a better place with lizards in it.</p>
+    <p>Paid for by <span>F.M. Bonnevier for Moorestown School Board</span> &bull; Moorestown, NJ &bull; 2025</p>
   </footer>
 
 </body>
