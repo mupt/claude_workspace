@@ -3,434 +3,706 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F.M. Bonnevier for Moorestown School Board</title>
+  <title>Delish — Every Recipe, One Place</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --navy: #0a1f44;
-      --red: #c0392b;
-      --gold: #e8b84b;
-      --light: #f4f6fa;
-      --white: #ffffff;
+      --orange: #ff6b35;
+      --orange-dark: #e85520;
+      --cream: #fffbf5;
+      --brown: #2c1810;
+      --gray: #6b6b6b;
+      --light: #f9f4ee;
+      --border: #ecddd0;
     }
 
     body {
-      font-family: 'Georgia', serif;
-      background: var(--light);
-      color: #222;
-      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
     }
 
     /* NAV */
     nav {
-      background: var(--navy);
-      padding: 14px 40px;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      height: 64px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    nav .logo {
-      color: var(--gold);
-      font-size: 1.1rem;
-      font-weight: bold;
-      letter-spacing: 0.05em;
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--orange);
+      letter-spacing: -0.03em;
     }
 
-    nav ul {
-      list-style: none;
+    .logo span { color: var(--brown); }
+
+    .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 28px;
+      list-style: none;
     }
 
-    nav ul a {
-      color: #cdd8ec;
+    .nav-links a {
       text-decoration: none;
+      color: var(--gray);
       font-size: 0.95rem;
-      font-family: Arial, sans-serif;
+      font-weight: 500;
       transition: color 0.2s;
     }
 
-    nav ul a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--orange); }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 60%, #163a6b);
-      color: white;
-      padding: 80px 40px;
+    .nav-right {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .hero img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 5px solid var(--gold);
-      object-fit: cover;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    }
-
-    .hero-text h1 {
-      font-size: 3rem;
-      color: var(--white);
-      line-height: 1.2;
-    }
-
-    .hero-text h1 span {
-      color: var(--gold);
-    }
-
-    .hero-text .tagline {
-      font-size: 1.25rem;
-      color: #9eb8d9;
-      margin: 12px 0 24px;
-      font-style: italic;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--red);
+    .btn-nav {
+      background: var(--orange);
       color: white;
-      padding: 14px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
       transition: background 0.2s;
     }
 
-    .btn:hover { background: #a93226; }
+    .btn-nav:hover { background: var(--orange-dark); }
 
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--gold);
-      color: var(--gold);
-      margin-left: 12px;
-    }
-
-    .btn-outline:hover { background: var(--gold); color: var(--navy); }
-
-    /* RIBBON */
-    .ribbon {
-      background: var(--red);
-      color: white;
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #fff8f0 0%, #ffe8d6 100%);
+      padding: 90px 40px 80px;
       text-align: center;
-      padding: 14px;
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: bold;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 70px 40px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: var(--navy);
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-      border-bottom: 3px solid var(--gold);
+    .hero-badge {
       display: inline-block;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .about-grid p { margin-bottom: 14px; }
-
-    .about-grid .bio-facts {
-      background: var(--navy);
-      color: white;
-      padding: 28px;
-      border-radius: 8px;
-    }
-
-    .bio-facts h3 {
-      color: var(--gold);
-      margin-bottom: 16px;
-      font-size: 1.1rem;
+      background: #fff0e6;
+      color: var(--orange);
+      border: 1px solid #ffd4b8;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
     }
 
-    .bio-facts ul { list-style: none; }
+    .hero h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--brown);
+      max-width: 700px;
+      margin: 0 auto 18px;
+    }
 
-    .bio-facts li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    .hero h1 span { color: var(--orange); }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .search-bar {
+      display: flex;
+      max-width: 560px;
+      margin: 0 auto 20px;
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 4px 24px rgba(255,107,53,0.15);
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: border 0.2s;
+    }
+
+    .search-bar:focus-within {
+      border-color: var(--orange);
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 16px 24px;
+      font-size: 1rem;
+      background: transparent;
+      color: var(--brown);
+    }
+
+    .search-bar button {
+      background: var(--orange);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 6px;
+      border-radius: 40px;
       font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .bio-facts li:last-child { border-bottom: none; }
+    .search-bar button:hover { background: var(--orange-dark); }
 
-    .bio-facts li::before { content: "✓ "; color: var(--gold); }
-
-    /* PLATFORM */
-    .platform-bg {
-      background: var(--navy);
+    .hero-tags {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .platform-bg section {
+    .tag {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tag:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--orange);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .stat {
+      text-align: center;
       color: white;
     }
 
-    .platform-bg h2 {
-      color: var(--white);
-      border-color: var(--gold);
+    .stat .number {
+      font-size: 2rem;
+      font-weight: 800;
+      display: block;
     }
 
-    .pillars {
+    .stat .label {
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 64px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header a {
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* RECIPE CARDS */
+    .recipe-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 24px;
+    }
+
+    .recipe-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    }
+
+    .card-img {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-source {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-save {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .card-body { padding: 16px; }
+
+    .card-body h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: var(--brown);
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .card-meta span { display: flex; align-items: center; gap: 4px; }
+
+    .card-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
       margin-top: 10px;
+      font-size: 0.82rem;
+      color: var(--gray);
     }
 
-    .pillar {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-top: 4px solid var(--gold);
-      border-radius: 6px;
-      padding: 28px;
+    .stars { color: #f59e0b; }
+
+    /* CATEGORIES */
+    .categories {
+      background: var(--light);
+      padding: 60px 40px;
     }
 
-    .pillar .icon { font-size: 2.2rem; margin-bottom: 12px; }
-
-    .pillar h3 {
-      color: var(--gold);
-      font-size: 1.1rem;
-      margin-bottom: 10px;
+    .cat-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
     }
 
-    .pillar p { font-size: 0.95rem; color: #cdd8ec; }
+    .cat-card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px 16px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
 
-    /* QUOTE */
-    .quote-section {
-      background: var(--gold);
-      padding: 50px 40px;
+    .cat-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .cat-card .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+    .cat-card span { font-size: 0.88rem; font-weight: 600; color: var(--brown); }
+
+    /* SOURCES */
+    .sources-strip {
+      text-align: center;
+      padding: 48px 40px;
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sources-strip p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .source-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .source-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #bbb;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+    }
+
+    .source-logo:hover { color: var(--orange); }
+
+    /* FEATURES */
+    .features {
+      background: var(--brown);
+      color: white;
+      padding: 80px 40px;
       text-align: center;
     }
 
-    .quote-section blockquote {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.5rem;
-      color: var(--navy);
-      font-style: italic;
-      line-height: 1.5;
+    .features h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
 
-    .quote-section cite {
-      display: block;
-      margin-top: 16px;
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: bold;
-      color: var(--navy);
+    .features > p {
+      color: #b89080;
+      margin-bottom: 50px;
+      font-size: 1.05rem;
     }
 
-    /* ENDORSEMENTS */
-    .endorse-grid {
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .endorse-card {
-      background: white;
-      border-left: 4px solid var(--navy);
+    .feature {
       padding: 24px;
-      border-radius: 4px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .endorse-card p { font-style: italic; margin-bottom: 12px; }
-    .endorse-card strong { color: var(--navy); }
+    .feature .icon { font-size: 2rem; margin-bottom: 14px; }
+    .feature h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feature p { font-size: 0.88rem; color: #b89080; line-height: 1.6; }
 
-    /* CONTACT */
-    .contact-bg { background: #e9ecf2; }
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--orange) 0%, #ff9a5c 100%);
+      padding: 80px 40px;
+      text-align: center;
+      color: white;
+    }
 
-    .contact-bg section { text-align: center; }
+    .cta h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
 
-    .contact-bg p {
+    .cta p {
       font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 30px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      opacity: 0.9;
+      margin-bottom: 32px;
+    }
+
+    .cta-form {
+      display: flex;
+      max-width: 420px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .cta-form input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px 22px;
+      font-size: 0.95rem;
+      color: var(--brown);
+    }
+
+    .cta-form button {
+      background: var(--brown);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 5px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
     }
 
     /* FOOTER */
     footer {
-      background: var(--navy);
-      color: #7a8faa;
+      background: #1a0e08;
+      color: #6b5a52;
+      padding: 32px 40px;
       text-align: center;
-      padding: 28px 20px;
-      font-family: Arial, sans-serif;
       font-size: 0.85rem;
     }
 
-    footer span { color: var(--gold); }
+    footer span { color: var(--orange); font-weight: 700; }
 
     @media (max-width: 640px) {
-      .hero { padding: 50px 20px; text-align: center; }
-      .hero-text h1 { font-size: 2rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      nav ul { gap: 16px; }
+      .hero h1 { font-size: 2.2rem; }
+      .stats { gap: 30px; flex-wrap: wrap; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">Bonnevier for School Board</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#platform">Platform</a></li>
-      <li><a href="#endorsements">Endorsements</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <div class="logo">delish<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Discover</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Meal Planner</a></li>
+      <li><a href="#">Sources</a></li>
     </ul>
+    <div class="nav-right">
+      <button class="btn-nav" style="background:transparent;color:var(--orange);border:1.5px solid var(--orange);">Log in</button>
+      <button class="btn-nav">Sign up free</button>
+    </div>
   </nav>
 
   <div class="hero">
-    <img src="https://avatars.githubusercontent.com/u/1609175?v=4" alt="F.M. Bonnevier">
-    <div class="hero-text">
-      <h1>F.M. <span>Bonnevier</span></h1>
-      <p class="tagline">A fresh voice for Moorestown's students and families</p>
-      <a href="#platform" class="btn">See My Platform</a>
-      <a href="#contact" class="btn btn-outline">Get Involved</a>
+    <div class="hero-badge">✨ 2 million+ recipes & counting</div>
+    <h1>Every great recipe,<br><span>one delicious place.</span></h1>
+    <p>We search the web's best food sites so you don't have to. Find, save, and cook anything.</p>
+    <div class="search-bar">
+      <input type="text" placeholder='Try "pasta carbonara" or "30-minute dinners"…'>
+      <button>Search</button>
+    </div>
+    <div class="hero-tags">
+      <span class="tag">🍝 Pasta</span>
+      <span class="tag">🥗 Salads</span>
+      <span class="tag">🍜 Soups</span>
+      <span class="tag">🍰 Baking</span>
+      <span class="tag">🥩 Grilling</span>
+      <span class="tag">🌱 Vegan</span>
+      <span class="tag">⚡ Under 30 min</span>
     </div>
   </div>
 
-  <div class="ribbon">Moorestown Township School Board Election 2025</div>
+  <div class="stats">
+    <div class="stat"><span class="number">2M+</span><span class="label">Recipes Indexed</span></div>
+    <div class="stat"><span class="number">500+</span><span class="label">Trusted Sources</span></div>
+    <div class="stat"><span class="number">4.8★</span><span class="label">Average Rating</span></div>
+    <div class="stat"><span class="number">1.2M</span><span class="label">Happy Cooks</span></div>
+  </div>
 
-  <div id="about">
-    <section>
-      <h2>About F.M.</h2>
-      <div class="about-grid">
-        <div>
-          <p>
-            F.M. Bonnevier is a Moorestown community member with a deep commitment to public education and the future of Moorestown Township's students. A proud product of public schools, F.M. knows firsthand how transformative a great education can be.
-          </p>
-          <p>
-            F.M. believes our school board must be responsive, transparent, and focused on student outcomes — not politics. That means listening to parents, supporting teachers, and making data-driven decisions with taxpayer money.
-          </p>
-          <p>
-            If elected, F.M. will be an independent voice on the board, free from special-interest influence and always accountable to the Moorestown community.
-          </p>
+  <div class="section">
+    <div class="section-header">
+      <h2>🔥 Trending This Week</h2>
+      <a href="#">See all →</a>
+    </div>
+    <div class="recipe-grid">
+
+      <div class="recipe-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400&q=80" alt="Pasta">
+          <span class="card-source">Serious Eats</span>
+          <button class="card-save">🤍</button>
         </div>
-        <div class="bio-facts">
-          <h3>At a Glance</h3>
-          <ul>
-            <li>Moorestown community member</li>
-            <li>Advocate for public education</li>
-            <li>Committed to fiscal responsibility</li>
-            <li>Supporter of teachers & staff</li>
-            <li>Parent & community stakeholder</li>
-            <li>Independent — no party agenda</li>
-          </ul>
+        <div class="card-body">
+          <h3>Classic Cacio e Pepe with Toasted Pepper</h3>
+          <div class="card-meta">
+            <span>⏱ 25 min</span>
+            <span>👤 2 servings</span>
+            <span>🟡 Easy</span>
+          </div>
+          <div class="card-rating"><span class="stars">★★★★★</span> 4.9 (2.1k)</div>
         </div>
       </div>
-    </section>
-  </div>
 
-  <div class="platform-bg" id="platform">
-    <section>
-      <h2>Platform</h2>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="icon">📚</div>
-          <h3>Academic Excellence</h3>
-          <p>Raise the bar for student achievement in reading, math, and critical thinking. Ensure every Moorestown student is prepared for college and career.</p>
+      <div class="recipe-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80" alt="Pancakes">
+          <span class="card-source">NYT Cooking</span>
+          <button class="card-save">🤍</button>
         </div>
-        <div class="pillar">
-          <div class="icon">💰</div>
-          <h3>Fiscal Responsibility</h3>
-          <p>Spend taxpayer dollars wisely and transparently. Every dollar should reach the classroom, not administrative overhead or wasteful programs.</p>
-        </div>
-        <div class="pillar">
-          <div class="icon">🏫</div>
-          <h3>Safe Schools</h3>
-          <p>Ensure every student feels safe and supported. Strengthen mental health resources, anti-bullying programs, and campus safety measures.</p>
-        </div>
-        <div class="pillar">
-          <div class="icon">🤝</div>
-          <h3>Community Partnership</h3>
-          <p>Keep parents informed and involved. Hold open board meetings, publish clear budgets, and build genuine two-way communication with families.</p>
-        </div>
-        <div class="pillar">
-          <div class="icon">👩‍🏫</div>
-          <h3>Supporting Teachers</h3>
-          <p>Recruit and retain the best educators by valuing their work, reducing administrative burden, and providing the resources they need to succeed.</p>
-        </div>
-        <div class="pillar">
-          <div class="icon">🌐</div>
-          <h3>Modern Learning</h3>
-          <p>Thoughtfully integrate technology and STEM opportunities while protecting student data privacy and ensuring equitable access for all students.</p>
+        <div class="card-body">
+          <h3>Fluffy Buttermilk Pancakes with Maple Butter</h3>
+          <div class="card-meta">
+            <span>⏱ 20 min</span>
+            <span>👤 4 servings</span>
+            <span>🟢 Easy</span>
+          </div>
+          <div class="card-rating"><span class="stars">★★★★★</span> 4.8 (5.4k)</div>
         </div>
       </div>
-    </section>
-  </div>
 
-  <div class="quote-section">
-    <blockquote>
-      "Our schools are the foundation of this community. Every decision the board makes should start and end with one question: is this good for our kids?"
-    </blockquote>
-    <cite>— F.M. Bonnevier</cite>
-  </div>
-
-  <div id="endorsements">
-    <section>
-      <h2>Endorsements</h2>
-      <div class="endorse-grid">
-        <div class="endorse-card">
-          <p>"F.M. brings the kind of thoughtful, no-nonsense approach our school board has been missing. I'm proud to give my full support."</p>
-          <strong>— Moorestown Parent & PTO Member</strong>
+      <div class="recipe-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80" alt="Soup">
+          <span class="card-source">Bon Appétit</span>
+          <button class="card-save">🤍</button>
         </div>
-        <div class="endorse-card">
-          <p>"Finally a candidate who actually listens. F.M. took the time to understand the real challenges teachers face every day."</p>
-          <strong>— Local Educator</strong>
-        </div>
-        <div class="endorse-card">
-          <p>"F.M. is committed to fiscal transparency and getting results for students. Moorestown needs this kind of leadership."</p>
-          <strong>— Moorestown Taxpayer & Business Owner</strong>
+        <div class="card-body">
+          <h3>Roasted Tomato & Basil Soup with Grilled Cheese</h3>
+          <div class="card-meta">
+            <span>⏱ 45 min</span>
+            <span>👤 6 servings</span>
+            <span>🟡 Medium</span>
+          </div>
+          <div class="card-rating"><span class="stars">★★★★☆</span> 4.7 (1.8k)</div>
         </div>
       </div>
-    </section>
+
+      <div class="recipe-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80" alt="Pizza">
+          <span class="card-source">The Food Lab</span>
+          <button class="card-save">🤍</button>
+        </div>
+        <div class="card-body">
+          <h3>Neapolitan-Style Margherita Pizza</h3>
+          <div class="card-meta">
+            <span>⏱ 1 hr</span>
+            <span>👤 4 servings</span>
+            <span>🔴 Advanced</span>
+          </div>
+          <div class="card-rating"><span class="stars">★★★★★</span> 5.0 (987)</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="contact-bg" id="contact">
-    <section>
-      <h2>Get Involved</h2>
-      <p>Want to volunteer, put up a yard sign, or just learn more? Reach out — every conversation matters.</p>
-      <a href="mailto:vote@bonnevier.fm" class="btn">Contact F.M.</a>
-    </section>
+  <div class="categories">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px;">
+        <h2 style="font-size:1.6rem;font-weight:800;">Browse by Category</h2>
+        <a href="#" style="color:var(--orange);text-decoration:none;font-size:0.9rem;font-weight:600;">All categories →</a>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card"><span class="emoji">🍝</span><span>Pasta</span></div>
+        <div class="cat-card"><span class="emoji">🍗</span><span>Chicken</span></div>
+        <div class="cat-card"><span class="emoji">🥗</span><span>Salads</span></div>
+        <div class="cat-card"><span class="emoji">🍰</span><span>Desserts</span></div>
+        <div class="cat-card"><span class="emoji">🍜</span><span>Soups</span></div>
+        <div class="cat-card"><span class="emoji">🌮</span><span>Mexican</span></div>
+        <div class="cat-card"><span class="emoji">🍣</span><span>Asian</span></div>
+        <div class="cat-card"><span class="emoji">🌱</span><span>Vegan</span></div>
+        <div class="cat-card"><span class="emoji">🥩</span><span>BBQ & Grill</span></div>
+        <div class="cat-card"><span class="emoji">🥞</span><span>Breakfast</span></div>
+        <div class="cat-card"><span class="emoji">🍹</span><span>Drinks</span></div>
+        <div class="cat-card"><span class="emoji">🍞</span><span>Baking</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sources-strip">
+    <p>Recipes aggregated from the world's best food sites</p>
+    <div class="source-logos">
+      <span class="source-logo">Serious Eats</span>
+      <span class="source-logo">NYT Cooking</span>
+      <span class="source-logo">Bon Appétit</span>
+      <span class="source-logo">AllRecipes</span>
+      <span class="source-logo">Food Network</span>
+      <span class="source-logo">Epicurious</span>
+      <span class="source-logo">Smitten Kitchen</span>
+    </div>
+  </div>
+
+  <div class="features">
+    <h2>Everything you need to cook better</h2>
+    <p>More than just a search engine — delish is your personal kitchen companion.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon">🔍</div>
+        <h3>Smart Search</h3>
+        <p>Search by ingredient, cuisine, dietary restriction, cook time, or anything else.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📋</div>
+        <h3>Meal Planner</h3>
+        <p>Plan your week, auto-generate a shopping list, and never wonder what's for dinner.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔖</div>
+        <h3>Save & Organize</h3>
+        <p>Bookmark recipes into collections. Access them anywhere, anytime, offline.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">⭐</div>
+        <h3>Trusted Ratings</h3>
+        <p>Aggregated ratings from across the web — no fake five-star reviews.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Start cooking smarter today.</h2>
+    <p>Free forever. No credit card required.</p>
+    <div class="cta-form">
+      <input type="email" placeholder="Enter your email…">
+      <button>Get started</button>
+    </div>
   </div>
 
   <footer>
-    <p>Paid for by <span>F.M. Bonnevier for Moorestown School Board</span> &bull; Moorestown, NJ &bull; 2025</p>
+    <p><span>delish.</span> — Every great recipe, one place. &copy; 2025</p>
   </footer>
 
 </body>
